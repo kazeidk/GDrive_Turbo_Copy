@@ -53,7 +53,7 @@
 | 🔄 | **Auto Resume** | Tự động tiếp tục khi timeout |
 | 💾 | **Smart Checkpoint** | Lưu tiến độ tự động mỗi 30s |
 | 🔁 | **Auto Retry** | Retry với exponential backoff |
-| 📊 | **Progress Bar** | Thanh tiến trình đẹp với animation |
+| 📊 | **Progress Bar** | Thanh tiến trình đẹp với hiệu ứng shine animation |
 | 🎯 | **Exact Match** | Kiểm tra file trùng chính xác |
 | 🔍 | **Smart Filter** | Lọc theo tên, đuôi file |
 | 📄 | **Export Docs** | Xuất Google Docs sang PDF |
@@ -86,7 +86,10 @@
 ────────────────────────────────────────
 
 📁 MyFolder: 20 files, 3 folders
-🚀 Copying: 100%|████████████████████| 20/20 💾 1.5GB | ⚡ 45.2MB/s | ⏱️ 33s
+┌──────────────────────────────────────────────────┐
+│██████████████████████████████████████████  100%  │  ← Thanh xanh với hiệu ứng shine
+└──────────────────────────────────────────────────┘
+🚀 20/20 files | 💾 1.5GB | ⚡ 45.2MB/s | ⏱️ 33s | ETA: 0s
 
 ✅ HOÀN TẤT!
 📁 Copied: 139 files | ⏭️ Skipped: 0 | ❌ Errors: 0
@@ -179,7 +182,7 @@ Bật **"Export Docs"** để xuất ra PDF.
 - 🚀 Turbo Mode với cache thông minh
 - 🔄 Auto resume khi timeout
 - 💾 Checkpoint + backup
-- 📊 Progress bar đẹp với animation
+- 📊 Progress bar đẹp với hiệu ứng shine animation màu xanh lá
 - 📄 Export Google Docs sang PDF
 - 🔍 Smart filter
 - 🔔 Sound alert
