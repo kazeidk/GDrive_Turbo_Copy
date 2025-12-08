@@ -2,7 +2,7 @@
 
 Blazing fast Google Drive folder copy - parallel processing, auto-resume, runs on Colab
 
-<a href="https://colab.research.google.com/github.com/kazeidk/GDrive_Turbo_Copy/blob/main/GDrive_Turbo_Copy.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+<a href="https://colab.research.google.com/github/kazeidk/GDrive_Turbo_Copy/blob/main/GDrive_Turbo_Copy.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 ---
 
@@ -48,7 +48,7 @@ Chạy cell "Run" và đợi hoàn tất
 
 ---
 
-##    Files sau khi chạy
+## �  Files sau khi chạy
 
 | File | Mô tả |
 |------|-------|
@@ -65,6 +65,6 @@ Chạy cell "Run" và đợi hoàn tất
 
 ---
 
-##   Li cense
+## � Li cense
 
 MIT License
