@@ -54,6 +54,7 @@
 | 🔔 | Sound Alert | Âm thanh thông báo khi hoàn tất |
 | 🧹 | Auto GC | Tự động dọn RAM, chạy ổn định |
 | 📝 | Full Logging | Ghi log chi tiết mọi hoạt động |
+| 🎨 | Auto Collapse | Code tự động thu gọn, giao diện gọn gàng |
 
 ---
 
@@ -191,6 +192,7 @@ Tool tự động retry 5 lần với exponential backoff. Nếu vẫn lỗi, đ
 - 🔍 Smart filter
 - 🔔 Sound alert
 - 🧹 Auto GC
+- 🎨 **Auto Collapse** - Code cells tự động thu gọn khi mở notebook
 
 ---
 
