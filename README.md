@@ -1,227 +1,262 @@
-<h1 align="center">🚀 GDrive Turbo Copy v1.0</h1>
+<h1 align="center">
+  <img src="https://em-content.zobj.net/source/apple/391/rocket_1f680.png" width="50" height="50" alt="🚀"/>
+  <br/>
+  GDrive Turbo Copy v1.0
+</h1>
 
 <p align="center">
-  <strong>Công cụ sao chép Google Drive mạnh mẽ và không giới hạn</strong>
+  <b>⚡ Copy Google Drive → Google Drive | Siêu nhanh • Ổn định • ♾️ KHÔNG GIỚI HẠN</b>
 </p>
 
 <p align="center">
   <a href="https://colab.research.google.com/github/kazeidk/GDrive_Turbo_Copy/blob/main/GDrive_Turbo_Copy.ipynb">
-    <img src="https://img.shields.io/badge/Open%20In-Colab-F9AB00?style=for-the-badge&logo=googlecolab&logoColor=white" alt="Open In Colab"/>
+    <img src="https://img.shields.io/badge/▶_OPEN_IN_COLAB-F9AB00?style=for-the-badge&logo=googlecolab&logoColor=white" alt="Open In Colab"/>
   </a>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Version-1.0-blue?style=flat-square" alt="Version"/>
-  <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License"/>
-  <img src="https://img.shields.io/badge/Python-3.x-yellow?style=flat-square&logo=python&logoColor=white" alt="Python"/>
-  <img src="https://img.shields.io/badge/Platform-Google%20Colab-orange?style=flat-square" alt="Platform"/>
+  <img src="https://img.shields.io/badge/Version-1.0-667eea?style=flat-square&labelColor=764ba2" alt="Version"/>
+  <img src="https://img.shields.io/badge/License-MIT-28a745?style=flat-square" alt="License"/>
+  <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python"/>
+  <img src="https://img.shields.io/badge/Platform-Google_Colab-F9AB00?style=flat-square&logo=googlecolab&logoColor=white" alt="Platform"/>
+  <img src="https://img.shields.io/badge/Status-Active-00d26a?style=flat-square" alt="Status"/>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/♾️_Unlimited-Copy_không_giới_hạn-667eea?style=flat-square" alt="Unlimited"/>
+  <img src="https://img.shields.io/badge/🚀_Turbo-50~150_MB/s-00d26a?style=flat-square" alt="Speed"/>
+  <img src="https://img.shields.io/badge/🔄_Auto_Resume-Checkpoint-17a2b8?style=flat-square" alt="Resume"/>
 </p>
 
 ---
 
-## 🎯 Giới thiệu
+## ⚡ Tại sao chọn GDrive Turbo Copy?
 
-**GDrive Turbo Copy** là công cụ copy folder Google Drive sang Google Drive với tốc độ cao, sử dụng Google Drive API để copy trực tiếp trên server (không download/upload qua máy bạn).
-
-### ✨ Điểm nổi bật
-
-| Tính năng | Mô tả |
-|:---|:---|
-| ♾️ **Không giới hạn** | Copy 100GB, 1TB, 10TB+ - không giới hạn dung lượng |
-| 🚀 **TURBO MODE** | Cache thông minh, giảm 50% API calls, tốc độ 50-150 MB/s |
-| ⚡ **Server-side** | Copy trực tiếp trên server Google, không qua máy bạn |
-| 🔄 **Auto resume** | Timeout? Chạy lại là tự tiếp tục, không mất tiến độ |
-| 💾 **Smart checkpoint** | Lưu tiến độ tự động + backup |
-| 🛡️ **An toàn** | Chỉ copy, không xóa - file gốc luôn nguyên vẹn |
+```
+╔══════════════════════════════════════════════════════════════════╗
+║  🚀 GDRIVE TURBO COPY - Copy Google Drive không giới hạn         ║
+╠══════════════════════════════════════════════════════════════════╣
+║  ♾️  UNLIMITED     │ Copy 100GB, 1TB, 10TB+ - không giới hạn     ║
+║  ⚡ SERVER-SIDE   │ Copy trực tiếp trên server Google           ║
+║  🚀 TURBO MODE    │ Cache thông minh, tốc độ 50-150 MB/s        ║
+║  🔄 AUTO RESUME   │ Timeout? Chạy lại là tự tiếp tục            ║
+║  💾 CHECKPOINT    │ Lưu tiến độ tự động + backup                ║
+║  🛡️  SAFE         │ Chỉ copy, không xóa - file gốc nguyên vẹn   ║
+╚══════════════════════════════════════════════════════════════════╝
+```
 
 ---
 
-## 📋 Tính năng đầy đủ
+## 🎯 Tính năng
 
-| Icon | Tính năng | Chi tiết |
+| Icon | Tính năng | Mô tả |
 |:---:|:---|:---|
-| ♾️ | Unlimited Copy | Không giới hạn dung lượng - copy bao nhiêu cũng được |
-| ⚡ | Server-side Copy | Copy trực tiếp trên server, không qua máy bạn |
-| 🚀 | TURBO MODE | Cache thông minh, giảm 50% API calls |
-| 🔄 | Auto Resume | Tự động tiếp tục khi timeout hoặc lỗi |
-| 💾 | Smart Checkpoint | Lưu tiến độ tự động + backup |
-| 🔁 | Auto Retry | Tự động retry với exponential backoff |
-| 📊 | Real-time Stats | Hiển thị số file, dung lượng, tốc độ, thời gian |
-| 🎯 | Exact Match | Kiểm tra file trùng chính xác 100% |
-| 🔍 | Smart Filter | Lọc theo tên file, đuôi file linh hoạt |
-| 📄 | Export Docs | Xuất Google Docs/Sheets/Slides sang PDF |
-| 🔗 | Shortcut Detection | Phát hiện và báo cáo shortcuts |
-| 🔔 | Sound Alert | Âm thanh thông báo khi hoàn tất |
-| 🧹 | Auto GC | Tự động dọn RAM, chạy ổn định |
-| 📝 | Full Logging | Ghi log chi tiết mọi hoạt động |
-| 🎨 | Auto Collapse | Code tự động thu gọn, giao diện gọn gàng |
+| ♾️ | **Unlimited Copy** | Copy không giới hạn dung lượng - 100GB, 1TB, 10TB+ |
+| ⚡ | **Server-side Copy** | Copy trực tiếp trên server Google, không qua máy bạn |
+| 🚀 | **Turbo Mode** | Cache thông minh, giảm 50% API calls, tốc độ 50-150 MB/s |
+| 🔄 | **Auto Resume** | Tự động tiếp tục khi timeout hoặc lỗi |
+| 💾 | **Smart Checkpoint** | Lưu tiến độ tự động mỗi 30s + backup |
+| 🔁 | **Auto Retry** | Tự động retry với exponential backoff |
+| 📊 | **Real-time Progress** | Hiển thị %, tốc độ, thời gian, tên file đang copy |
+| 🎯 | **Exact Match** | Kiểm tra file trùng chính xác 100% |
+| 🔍 | **Smart Filter** | Lọc theo tên file, đuôi file linh hoạt |
+| 📄 | **Export Docs** | Xuất Google Docs/Sheets/Slides sang PDF |
+| 🔗 | **Shortcut Detection** | Phát hiện và báo cáo shortcuts |
+| 🔔 | **Sound Alert** | Âm thanh thông báo khi hoàn tất |
+| 🧹 | **Auto GC** | Tự động dọn RAM, chạy ổn định |
+| 📝 | **Full Logging** | Ghi log chi tiết mọi hoạt động |
+| 🎨 | **Beautiful UI** | Giao diện đẹp, progress bar chuyên nghiệp |
 
 ---
 
-## 🚀 Hướng dẫn sử dụng
+## 🚀 Bắt đầu nhanh
 
-### Bước 1: Mở Colab
+### 1️⃣ Mở Colab
+<a href="https://colab.research.google.com/github/kazeidk/GDrive_Turbo_Copy/blob/main/GDrive_Turbo_Copy.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
 
-Click nút bên dưới để mở notebook:
+### 2️⃣ Nhập thông tin (Cell 1)
+```
+📁 Folder đích:  [Link folder Google Drive của bạn]
+📂 Folder nguồn: [Link folder cần copy]
+```
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kazeidk/GDrive_Turbo_Copy/blob/main/GDrive_Turbo_Copy.ipynb)
+### 3️⃣ Chạy copy (Cell 2)
+```
+╔══════════════════════════════════════════════════╗
+║  🚀 GDRIVE TURBO COPY v1.0                        ║
+║  ⚡ Copy siêu nhanh • ♾️  Không giới hạn            ║
+╚══════════════════════════════════════════════════╝
 
-### Bước 2: Nhập thông tin
+📂 FolderNguon/SubFolder
+   🚀 Copying  45%|█████████████░░░░░░░░░░░░| 9/20 ⏱️00:15 video.mp4 125MB 45MB/s
+   ✅ Done: 20 files | 💾 Total: 1.5GB | 🚀 Avg: 25.3 MB/s
 
-Chạy **Cell 1** và nhập:
-- 📁 **Folder đích**: Link folder Google Drive của bạn (nơi lưu file copy)
-- 📂 **Folder nguồn**: Link folder cần copy (có thể là Shared Drive)
+╔══════════════════════════════════════════════════╗
+║  ✅ HOÀN TẤT!                                     ║
+╠══════════════════════════════════════════════════╣
+║  📁 Đã copy:           139 files              ║
+║  ⏭️  Đã skip:             0 files              ║
+║  ❌ Lỗi:                 0 files              ║
+║  💾 Dung lượng:        3.81GB                  ║
+║  ⏱️  Thời gian:          2m53s                  ║
+║  🚀 Tốc độ:           22.5 MB/s                ║
+╚══════════════════════════════════════════════════╝
+```
 
-### Bước 3: Bắt đầu copy
-
-Chạy **Cell 2** và đợi hoàn tất.
-
-> 💡 **Timeout?** Đừng lo - chỉ cần chạy lại Cell 2, tool sẽ tự động tiếp tục từ chỗ dừng!
+> 💡 **Timeout?** Chạy lại Cell 2 - tool tự động resume từ chỗ dừng!
 
 ---
 
-## 🎮 Các Cell trong Notebook
+## 🎮 Các Cell
 
-| Cell | Tên | Chức năng |
+| Cell | Chức năng | Mô tả |
 |:---:|:---|:---|
-| 1️⃣ | Nhập thông tin | Nhập link folder và cài đặt bộ lọc |
-| 2️⃣ | Run Copy | Thực hiện copy |
-| 3️⃣ | Xóa checkpoint | Reset để copy lại từ đầu |
-| 4️⃣ | Xem Log | Xem thống kê, file lỗi, shortcuts |
+| 1️⃣ | **Nhập thông tin** | Nhập link folder nguồn/đích, cài đặt bộ lọc |
+| 2️⃣ | **Run Copy** | Thực hiện copy với progress bar real-time |
+| 3️⃣ | **Xóa checkpoint** | Reset để copy lại từ đầu |
+| 4️⃣ | **Xem Log** | Xem thống kê, file lỗi, shortcuts |
 
 ---
 
-## ⚙️ Các tùy chọn
+## ⚙️ Tùy chọn nâng cao
 
 | Tùy chọn | Mô tả | Mặc định |
 |:---|:---|:---:|
-| 📁 Folder đích | Link folder của bạn | Bắt buộc |
-| 📂 Folder nguồn | Link folder cần copy | Bắt buộc |
-| 🚫 Bỏ qua chứa | Skip file có tên chứa text này | Trống |
-| ✅ Chỉ lấy đuôi | Chỉ copy file có đuôi này | Trống |
-| ❌ Bỏ qua đuôi | Skip file có đuôi này | Trống |
-| ⏭️ Skip file đã có | Bỏ qua file trùng tên | Bật |
-| 📄 Export Docs | Xuất Google Docs sang PDF | Tắt |
-| 👁️ Dry-run | Chỉ xem preview, không copy | Tắt |
+| 🚫 **Bỏ qua chứa** | Skip file có tên chứa text này (VD: `.tmp, backup`) | - |
+| ✅ **Chỉ lấy đuôi** | Chỉ copy file có đuôi này (VD: `.mp4, .pdf`) | - |
+| ❌ **Bỏ qua đuôi** | Skip file có đuôi này (VD: `.log, .bak`) | - |
+| ⏭️ **Skip file đã có** | Bỏ qua file trùng tên | ✅ Bật |
+| 📄 **Export Docs** | Xuất Google Docs sang PDF | ❌ Tắt |
+| 👁️ **Dry-run** | Chỉ xem preview, không copy | ❌ Tắt |
 
 ---
 
-## 💡 Mẹo sử dụng
+## 💡 Tips & Tricks
 
-### Để copy nhanh nhất:
-- 🌙 Chạy **ban đêm** - ít rate limit hơn
-- 💪 Dùng **Colab Pro** + **High RAM** runtime
-- 📶 Đảm bảo mạng ổn định
-- 🔄 Timeout? Chạy lại Cell 2 ngay
-
-### Theo dõi tiến độ:
-- 📊 Xem real-time stats trên màn hình
-- 📝 Log chi tiết tại `/content/gdrive_copy.log`
-- 📋 Chạy **Cell 4** để xem thống kê đầy đủ
+```
+┌─────────────────────────────────────────────────────────────┐
+│  🌙 Chạy BAN ĐÊM để ít rate limit hơn                       │
+│  💪 Dùng COLAB PRO + HIGH RAM để ổn định hơn                │
+│  🔄 Timeout? Chạy lại Cell 2 ngay - tự động resume          │
+│  📋 Xem log chi tiết tại /content/gdrive_copy.log           │
+│  🎯 Dùng bộ lọc để copy chính xác file cần thiết            │
+└─────────────────────────────────────────────────────────────┘
+```
 
 ---
 
-## ❓ Câu hỏi thường gặp
+## ❓ FAQ
 
 <details>
-<summary><strong>Copy được bao nhiêu dung lượng?</strong></summary>
+<summary><b>♾️ Copy được bao nhiêu dung lượng?</b></summary>
 
-**Không giới hạn!** Tool sử dụng Google Drive API `files().copy()` - copy trực tiếp trên server Google. Bạn có thể copy 100GB, 1TB, thậm chí 10TB+ mà không gặp vấn đề.
+**Không giới hạn!** Tool sử dụng Google Drive API `files().copy()` - copy trực tiếp trên server Google. Copy 100GB, 1TB, thậm chí 10TB+ đều OK.
 </details>
 
 <details>
-<summary><strong>Copy được Shared Drive không?</strong></summary>
+<summary><b>🔗 Copy được Shared Drive không?</b></summary>
 
-**Có!** Tool hỗ trợ đầy đủ Shared Drive. Chỉ cần bạn có quyền view folder nguồn là copy được.
+**Có!** Hỗ trợ đầy đủ Shared Drive. Chỉ cần có quyền view folder nguồn là copy được.
 </details>
 
 <details>
-<summary><strong>Colab Free dùng được không?</strong></summary>
+<summary><b>💰 Colab Free dùng được không?</b></summary>
 
-**Có!** Colab Free hoạt động tốt, chỉ hay bị timeout (~90 phút). Chạy lại Cell 2 là tự động resume.
+**Có!** Colab Free hoạt động tốt, chỉ hay timeout (~90 phút). Chạy lại Cell 2 là tự động resume.
 </details>
 
 <details>
-<summary><strong>Có mất dữ liệu gốc không?</strong></summary>
+<summary><b>🛡️ Có mất dữ liệu gốc không?</b></summary>
 
 **Không!** Tool chỉ copy, không xóa hay sửa file gốc. Dữ liệu nguồn luôn an toàn 100%.
 </details>
 
 <details>
-<summary><strong>Tốc độ copy bao nhiêu?</strong></summary>
+<summary><b>🚀 Tốc độ copy bao nhiêu?</b></summary>
 
-Với TURBO MODE, tốc độ trung bình **50-150 MB/s** (tùy Google API). Ban đêm thường nhanh hơn.
+Trung bình **50-150 MB/s** tùy Google API. Ban đêm thường nhanh hơn.
 </details>
 
 <details>
-<summary><strong>Sao không copy được Google Docs?</strong></summary>
+<summary><b>📄 Sao không copy được Google Docs?</b></summary>
 
-Google Docs/Sheets/Slides là file đặc biệt, không có dung lượng thực. Mặc định tool bỏ qua. Bật **"Export Docs"** nếu cần xuất ra PDF.
+Google Docs/Sheets/Slides là file đặc biệt, không có dung lượng thực. Bật **"Export Docs"** để xuất ra PDF.
 </details>
 
 <details>
-<summary><strong>Bị rate limit thì sao?</strong></summary>
+<summary><b>⚠️ Bị rate limit thì sao?</b></summary>
 
-Tool tự động retry 5 lần với exponential backoff. Nếu vẫn lỗi, đợi vài phút rồi chạy lại Cell 2.
+Tool tự động retry với exponential backoff. Nếu vẫn lỗi, đợi vài phút rồi chạy lại Cell 2.
 </details>
 
 ---
 
-## ⚠️ Lưu ý quan trọng
+## 📋 Changelog
 
-| Loại file | Xử lý |
-|:---|:---|
-| 📄 Google Docs/Sheets/Slides | Mặc định bỏ qua. Bật "Export Docs" để xuất PDF |
-| 🔗 Shortcuts | Bỏ qua, liệt kê trong Cell 4 |
-| 📁 Folder trống | Vẫn tạo folder, không báo lỗi |
-
----
-
-## 📝 Changelog
-
-### v1.0
-- ♾️ Copy không giới hạn dung lượng
-- ⚡ Server-side copy siêu nhanh
-- 🚀 **TURBO MODE** - Cache thông minh, giảm 50% API calls
-- 🔄 Auto resume khi timeout
-- 💾 Checkpoint + backup thông minh
-- 🔁 Auto retry với exponential backoff
-- 📊 Real-time stats
-- 📄 Export Google Docs sang PDF
-- 🔗 Shortcut detection
-- 🔍 Smart filter
-- 🔔 Sound alert
-- 🧹 Auto GC
-- 🎨 **Auto Collapse** - Code cells tự động thu gọn khi mở notebook
+### v1.0 - Initial Release
+```diff
++ ♾️ Copy không giới hạn dung lượng
++ ⚡ Server-side copy siêu nhanh
++ 🚀 Turbo Mode - Cache thông minh
++ 🔄 Auto resume khi timeout
++ 💾 Checkpoint + backup thông minh
++ 🔁 Auto retry với exponential backoff
++ 📊 Real-time progress với tên file, tốc độ
++ 📄 Export Google Docs sang PDF
++ 🔗 Shortcut detection
++ 🔍 Smart filter
++ 🔔 Sound alert
++ 🧹 Auto GC
++ 🎨 Beautiful UI với progress bar chuyên nghiệp
+```
 
 ---
 
 ## 👨‍💻 Tác giả
 
-**Nguyễn Ngọc Anh Tú**
-
-| Liên kết | |
-|:---|:---|
-| 📢 Kênh thông báo | [Messenger Channel](https://www.messenger.com/channel/NguyenNgocAnhTu.VN) |
-| 📘 Facebook | [NguyenNgocAnhTu.VN](https://www.facebook.com/NguyenNgocAnhTu.VN) |
-| ✈️ Telegram | [NguyenNgocAnhTu](https://t.me/NguyenNgocAnhTu) |
-| 🐙 GitHub | [kazeidk](https://github.com/kazeidk) |
-
----
-
-## ⭐ Ủng hộ dự án
-
-Nếu tool hữu ích với bạn:
-- ⭐ **Star** repo này trên GitHub
-- 🔄 **Share** cho bạn bè cần dùng
-- 📢 **Follow** [kênh thông báo](https://www.messenger.com/channel/NguyenNgocAnhTu.VN) để nhận update mới
-
----
-
 <p align="center">
-  <strong>📄 MIT License</strong> - Tự do sử dụng và chỉnh sửa
+  <b>Nguyễn Ngọc Anh Tú</b>
 </p>
 
 <p align="center">
-  Made with ❤️ by Nguyễn Ngọc Anh Tú
+  <a href="https://www.messenger.com/channel/NguyenNgocAnhTu.VN">
+    <img src="https://img.shields.io/badge/📢_Kênh_TB-Messenger-0084FF?style=for-the-badge" alt="Messenger"/>
+  </a>
+  <a href="https://www.facebook.com/NguyenNgocAnhTu.VN">
+    <img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" alt="Facebook"/>
+  </a>
+  <a href="https://t.me/NguyenNgocAnhTu">
+    <img src="https://img.shields.io/badge/Telegram-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"/>
+  </a>
+  <a href="https://github.com/kazeidk">
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
+  </a>
+</p>
+
+---
+
+## ⭐ Ủng hộ
+
+<p align="center">
+  Nếu tool hữu ích với bạn, hãy:
+</p>
+
+<p align="center">
+  ⭐ <b>Star</b> repo này trên GitHub
+  <br/>
+  🔄 <b>Share</b> cho bạn bè cần dùng
+  <br/>
+  📢 <b>Follow</b> <a href="https://www.messenger.com/channel/NguyenNgocAnhTu.VN">kênh thông báo</a> để nhận update
+</p>
+
+---
+
+<p align="center">
+  <img src="https://img.shields.io/badge/📄_MIT_License-Tự_do_sử_dụng-28a745?style=flat-square" alt="License"/>
+</p>
+
+<p align="center">
+  Made with ❤️ by <b>Nguyễn Ngọc Anh Tú</b>
 </p>
