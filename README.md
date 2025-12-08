@@ -1,39 +1,8 @@
-# ⚡ GDrive Turbo Copy
+# 🚀 GDrive Turbo Copy
 
-> **Google Drive folder copy tool - runs on Google Colab**
+Tool copy folder Google Drive sang Google Drive nhanh chóng và ổn định, hỗ trợ folder lớn (2000GB+).
 
 <a href="https://colab.research.google.com/github/kazeidk/GDrive_Turbo_Copy/blob/main/GDrive_Turbo_Copy.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
-
----
-
-## 🤔 Tool này để làm gì?
-
-**GDrive Turbo Copy** giúp bạn **copy toàn bộ folder từ Google Drive này sang Google Drive khác** một cách nhanh chóng.
-
-### Ví dụ sử dụng:
-
-| Tình huống | Giải pháp |
-|------------|-----------|
-| 🎬 Bạn bè share folder phim 500GB, muốn copy về Drive của mình | ✅ Dùng tool này |
-| 📚 Có folder tài liệu trên Shared Drive công ty, muốn backup | ✅ Dùng tool này |
-| 💾 Muốn copy folder từ Drive cũ sang Drive mới | ✅ Dùng tool này |
-| 🎮 Ai đó share folder game/software, muốn lưu lại | ✅ Dùng tool này |
-
-### Tại sao không copy thủ công?
-
-| Cách | Vấn đề |
-|------|--------|
-| **Tải về máy rồi upload lại** | Chậm, tốn băng thông, hay lỗi |
-| **Dùng "Add shortcut"** | Không phải copy thật, xóa gốc là mất |
-| **Dùng "Make a copy"** | Chỉ copy được 1 file, không copy folder |
-
-### Tool này giải quyết như thế nào?
-
-- ✅ Copy **trực tiếp trên server Google** (không qua máy bạn)
-- ✅ Copy **cả folder** với toàn bộ file bên trong
-- ✅ **Nhanh hơn** so với tải về rồi upload
-- ✅ **Tự động tiếp tục** nếu bị ngắt giữa chừng
-- ✅ **Miễn phí** - chạy trên Google Colab
 
 ---
 
@@ -41,150 +10,123 @@
 
 | Tính năng | Mô tả |
 |-----------|-------|
-| 🎯 **Exact match** | Kiểm tra file chính xác (không trùng lặp) |
-| 🔄 **Auto-resume** | Lưu checkpoint, tự tiếp tục khi timeout |
-| 🔁 **Auto-retry** | Tự động retry khi rate limit |
-| 📊 **Progress bar** | Hiển thị tiến độ copy |
-| 🔍 **Dry-run** | Xem trước không copy thật |
-| 🎛️ **Filter** | Lọc theo đuôi file hoặc tên |
-| 💾 **Checkpoint** | Lưu tiến độ mỗi 10 files |
-| 📝 **Log chi tiết** | Ghi log để debug |
+| 📊 **Scan trước** | Đếm số file + tổng dung lượng trước khi copy |
+| ⏱️ **ETA** | Hiển thị thời gian còn lại ước tính |
+| 📈 **Progress** | Theo dõi % hoàn thành real-time |
+| 🔔 **Âm thanh** | Thông báo khi hoàn tất |
+| 🎯 **Exact match** | Kiểm tra file chính xác (không bị trùng như tool cũ) |
+| 🔄 **Auto-resume** | Tự tiếp tục khi timeout/disconnect |
+| 🔁 **Auto-retry** | Tự retry 5 lần với exponential backoff khi rate limit |
+| 💾 **Checkpoint** | Lưu tiến độ mỗi 20 files + backup file |
+| 🔍 **Filter** | Lọc theo đuôi file (.mp4, .pdf...) |
+| 🧹 **Auto GC** | Tự dọn RAM mỗi 60s, tránh crash |
+| ♾️ **Không giới hạn** | Không giới hạn dung lượng copy |
 
 ---
 
-## 📦 Yêu cầu
+## ⚠️ Lưu ý quan trọng
 
-- Tài khoản Google
-- Quyền truy cập folder nguồn (view hoặc edit)
-- Quyền truy cập folder đích (edit)
+**Không hỗ trợ Google Docs/Sheets/Slides:**
+- Tool chỉ copy các file thực (video, PDF, ZIP, hình ảnh...)
+- Google Docs, Sheets, Slides, Forms... sẽ bị bỏ qua
+- Lý do: Các file Google Workspace không có dung lượng thực và cần export sang định dạng khác
 
 ---
 
-## 🚀 Hướng dẫn sử dụng
+## 📖 Cách sử dụng
 
 ### Bước 1: Mở notebook trên Colab
 
-Click badge **"Open in Colab"** ở trên hoặc link:
-https://colab.research.google.com/github/kazeidk/GDrive_Turbo_Copy/blob/main/GDrive_Turbo_Copy.ipynb
+Click nút **"Open in Colab"** ở trên
 
-### Bước 2: Cấu hình Colab (tùy chọn)
+### Bước 2: Cấu hình Colab (khuyến nghị cho folder lớn)
 
-Vào **Runtime** → **Change runtime type**:
+1. Vào **Runtime** → **Change runtime type**
+2. Chọn:
+   - **GPU**: A100 (nếu có Pro+)
+   - **High RAM**: BẬT (nếu có Pro+)
+3. Nhấn **Save**
 
-#### Cho Colab Pro+ (khuyến nghị):
-| Setting | Chọn |
-|---------|------|
-| Kiểu thời gian chạy | **Python 3** |
-| Bộ tăng tốc phần cứng | **GPU A100** |
-| RAM cao | **BẬT** ✅ |
+### Bước 3: Chạy từng cell theo thứ tự
 
-#### Cho Colab Free:
-| Setting | Chọn |
-|---------|------|
-| Kiểu thời gian chạy | **Python 3** |
-| Bộ tăng tốc phần cứng | **Bộ xử lý (CPU)** |
+| Cell | Mô tả |
+|------|-------|
+| **1️⃣ Cài đặt** | Cài thư viện cần thiết |
+| **2️⃣ Nhập thông tin** | Nhập link folder nguồn và đích |
+| **3️⃣ Run** | Bắt đầu copy |
+| **4️⃣ Xóa checkpoint** | Chạy lại từ đầu (nếu cần) |
 
----
+### Bước 4: Nếu bị timeout
 
-### Bước 3: Chạy cell "Cài đặt thư viện"
-
-1. Click vào cell `1️⃣ Cài đặt thư viện`
-2. Nhấn **Shift + Enter**
-3. Đợi đến khi hiện `✅ Đã cài đặt xong!`
+Chạy lại **Cell 3** → Tool tự động resume từ chỗ dừng
 
 ---
 
-### Bước 4: Chạy cell "Nhập thông tin"
-
-1. Click vào cell `2️⃣ Nhập thông tin`
-2. Nhấn **Shift + Enter**
-3. Điền thông tin:
-
-| Field | Mô tả | Ví dụ |
-|-------|-------|-------|
-| **📁 Folder đích** | Link folder Google Drive của bạn | `https://drive.google.com/drive/folders/abc123...` |
-| **📂 Folder nguồn** | Link folder cần copy | `https://drive.google.com/drive/folders/xyz789...` |
-| **💾 Giới hạn (GB)** | 0 = không giới hạn | `0` |
-
----
-
-### Bước 5: Chạy cell "Run"
-
-1. Click vào cell `3️⃣ Run - GDrive Turbo Copy`
-2. Nhấn **Shift + Enter**
-3. **Lần đầu**: Click "Allow" để cấp quyền truy cập Google Drive
-4. Đợi tool chạy
-
-Khi hoàn tất:
-```
-==================================================
-📊 KẾT QUẢ
-✅ Copied: 1234 | ⏭️ Skipped: 56 | ❌ Errors: 0
-💾 45.67GB | ⏱️ 930s | 🚀 52.3MB/s
-==================================================
-🎉 HOÀN TẤT!
-```
-
----
-
-## 📖 Giải thích các tùy chọn
+## ⚙️ Giải thích các tùy chọn
 
 | Tùy chọn | Mô tả | Ví dụ |
 |----------|-------|-------|
-| **Folder đích** | Link folder nơi bạn muốn copy đến | |
-| **Folder nguồn** | Link folder cần copy | |
-| **Giới hạn (GB)** | Dừng khi đạt dung lượng này. 0 = không giới hạn | `100` |
-| **Bỏ qua chứa** | Bỏ qua file có tên chứa chuỗi này | `.tmp, backup` |
-| **Chỉ copy đuôi** | Chỉ copy file có đuôi này | `.pdf, .mp4` |
-| **Bỏ qua đuôi** | Bỏ qua file có đuôi này | `.tmp, .log` |
-| **Dry-run** | Chỉ xem sẽ copy gì, không copy thật | |
-| **Ghi đè nếu size khác** | Ghi đè file nếu size khác | |
+| **Folder đích** | Link folder Google Drive của bạn | `https://drive.google.com/drive/folders/abc123` |
+| **Folder nguồn** | Link folder cần copy (Shared Drive OK) | `https://drive.google.com/drive/folders/xyz789` |
+| **Bỏ qua chứa** | Bỏ qua file/folder có tên chứa text này | `.tmp, backup, test` |
+| **Chỉ đuôi** | Chỉ copy file có đuôi này | `.mp4, .pdf, .zip` |
+| **Bỏ đuôi** | Bỏ qua file có đuôi này | `.tmp, .log, .bak` |
+| **Bỏ qua file đã có** | Skip file đã tồn tại ở đích | ✅ (khuyến nghị) |
+| **Dry-run** | Chỉ xem sẽ copy gì, không copy thật | ❌ |
 
 ---
 
-## 🔧 Xử lý sự cố
+## 🔥 Tips cho folder lớn (>500GB)
 
-### Bị timeout / disconnect
-
-**Giải pháp**: Chạy lại cell "Run" - tool sẽ tự động resume từ checkpoint
-
-### Rate limit (lỗi 403/429)
-
-**Giải pháp**: Tool tự động retry với exponential backoff
-
-### Không truy cập được folder
-
-**Giải pháp**:
-1. Kiểm tra link folder đúng chưa
-2. Đảm bảo có quyền view folder nguồn
-3. Đảm bảo có quyền edit folder đích
-
-### Muốn copy lại từ đầu
-
-**Giải pháp**: Chạy cell `4️⃣ Tiện ích - Xóa checkpoint`
+- Dùng **Colab Pro+** với **GPU A100** + **High RAM**
+- Chạy **ban đêm** (ít rate limit hơn)
+- Nếu **timeout** → chạy lại Cell 3, tool tự resume
+- **Không cần** giữ tab mở, Colab chạy nền
 
 ---
 
 ## ❓ FAQ
 
 ### Q: Copy được Shared Drive không?
-**A**: Có, chỉ cần bạn có quyền view folder đó.
-
-### Q: Copy được Google Docs/Sheets/Slides không?
-**A**: Không, tool chỉ copy file thường (PDF, video, zip...).
+**A:** Có, chỉ cần bạn có quyền view folder đó.
 
 ### Q: Colab Free có dùng được không?
-**A**: Có, nhưng hay timeout (~90 phút). Chạy lại sẽ tự resume.
+**A:** Có, nhưng hay timeout (~90 phút). Chạy lại sẽ tự resume.
 
 ### Q: Có mất dữ liệu không?
-**A**: Không, tool chỉ copy (không xóa/move). File gốc vẫn nguyên.
+**A:** Không, tool chỉ copy (không xóa/move). File gốc vẫn nguyên.
+
+### Q: Tốc độ copy bao nhiêu?
+**A:** Tùy thuộc vào Google API, trung bình 20-100 MB/s.
+
+### Q: Sao không copy được Google Docs?
+**A:** Google Docs/Sheets/Slides không phải file thực, cần export. Tool này chỉ copy file có dung lượng thực.
 
 ---
 
-## 📝 License
+## 📝 Changelog
 
-MIT License
+### v1.0
+- Copy tuần tự ổn định (không multi-thread để tránh crash)
+- Checkpoint + backup file
+- Auto-retry 5 lần với exponential backoff
+- Exact match kiểm tra file (fix bug tool cũ dùng `contains`)
+- Hỗ trợ folder 2000GB+
+- Không giới hạn dung lượng
+- Auto garbage collection
 
 ---
 
-Made with ❤️ by kazeidk
+## 👤 Tác giả
+
+**Nguyễn Ngọc Anh Tú**
+
+- Facebook: [https://www.facebook.com/NguyenNgocAnhTu.VN](https://www.facebook.com/NguyenNgocAnhTu.VN)
+- Telegram: [https://t.me/NguyenNgocAnhTu](https://t.me/NguyenNgocAnhTu)
+- GitHub: [kazeidk](https://github.com/kazeidk)
+
+---
+
+## 📄 License
+
+MIT License - Tự do sử dụng và chỉnh sửa
