@@ -6,6 +6,37 @@
 
 ---
 
+## 🤔 Tool này để làm gì?
+
+**GDrive Turbo Copy** giúp bạn **copy toàn bộ folder từ Google Drive này sang Google Drive khác** một cách nhanh chóng.
+
+### Ví dụ sử dụng:
+
+| Tình huống | Giải pháp |
+|------------|-----------|
+| 🎬 Bạn bè share folder phim 500GB, muốn copy về Drive của mình | ✅ Dùng tool này |
+| 📚 Có folder tài liệu trên Shared Drive công ty, muốn backup | ✅ Dùng tool này |
+| 💾 Muốn copy folder từ Drive cũ sang Drive mới | ✅ Dùng tool này |
+| 🎮 Ai đó share folder game/software, muốn lưu lại | ✅ Dùng tool này |
+
+### Tại sao không copy thủ công?
+
+| Cách | Vấn đề |
+|------|--------|
+| **Tải về máy rồi upload lại** | Chậm, tốn băng thông, hay lỗi |
+| **Dùng "Add shortcut"** | Không phải copy thật, xóa gốc là mất |
+| **Dùng "Make a copy"** | Chỉ copy được 1 file, không copy folder |
+
+### Tool này giải quyết như thế nào?
+
+- ✅ Copy **trực tiếp trên server Google** (không qua máy bạn)
+- ✅ Copy **cả folder** với toàn bộ file bên trong
+- ✅ **Nhanh gấp 10-50 lần** so với tải về rồi upload
+- ✅ **Tự động tiếp tục** nếu bị ngắt giữa chừng
+- ✅ **Miễn phí** - chạy trên Google Colab
+
+---
+
 ## 📋 Mục lục
 
 - [Giới thiệu](#-giới-thiệu)
