@@ -10,9 +10,7 @@ Tool copy folder Google Drive sang Google Drive nhanh chóng và ổn định, h
 
 | Tính năng | Mô tả |
 |-----------|-------|
-| 📊 **Scan trước** | Đếm số file + tổng dung lượng trước khi copy |
-| ⏱️ **ETA** | Hiển thị thời gian còn lại ước tính |
-| 📈 **Progress** | Theo dõi % hoàn thành real-time |
+| ⚡ **Copy ngay** | Không scan, copy trực tiếp luôn |
 | 🔔 **Âm thanh** | Thông báo khi hoàn tất |
 | 🎯 **Exact match** | Kiểm tra file chính xác (không bị trùng như tool cũ) |
 | 🔄 **Auto-resume** | Tự tiếp tục khi timeout/disconnect |
