@@ -1,7 +1,7 @@
 <h1 align="center">
   <img src="https://em-content.zobj.net/source/apple/391/rocket_1f680.png" width="50" height="50" alt="🚀"/>
   <br/>
-  GDrive Turbo Copy v1.0
+  GDrive Turbo Copy v1.1
 </h1>
 
 <p align="center">
@@ -15,7 +15,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Version-1.0-667eea?style=flat-square&labelColor=764ba2" alt="Version"/>
+  <img src="https://img.shields.io/badge/Version-1.1-667eea?style=flat-square&labelColor=764ba2" alt="Version"/>
   <img src="https://img.shields.io/badge/License-MIT-28a745?style=flat-square" alt="License"/>
   <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python"/>
   <img src="https://img.shields.io/badge/Platform-Google_Colab-F9AB00?style=flat-square&logo=googlecolab&logoColor=white" alt="Platform"/>
@@ -36,6 +36,7 @@
 - [Tính năng](#-tính-năng)
 - [Yêu cầu hệ thống](#-yêu-cầu-hệ-thống)
 - [Hướng dẫn sử dụng](#-hướng-dẫn-sử-dụng)
+- [Multi-Account Resume](#-multi-account-resume-mới)
 - [Cấu trúc Notebook](#-cấu-trúc-notebook)
 - [Tùy chọn nâng cao](#️-tùy-chọn-nâng-cao)
 - [Cách hoạt động](#-cách-hoạt-động)
@@ -86,6 +87,8 @@
 |:---:|:---|:---|
 | 🔁 | **Auto Retry** | Retry với exponential backoff khi gặp lỗi |
 | 📊 | **Progress Bar** | Thanh tiến trình với hiệu ứng animation |
+| 📈 | **Quota Estimate** | Ước tính % quota đã dùng (~750GB/ngày) |
+| ⚠️ | **Quota Warning** | Cảnh báo khi gần hết quota (>90%) |
 | 🎯 | **Exact Match** | Kiểm tra file trùng chính xác theo tên |
 | 🔍 | **Smart Filter** | Lọc file theo tên hoặc đuôi file |
 | 📄 | **Export Docs** | Xuất Google Docs/Sheets/Slides sang PDF |
@@ -150,15 +153,17 @@ Chạy Cell 2, tool sẽ:
 [22:10:08] 📁 Đích: Backup
 [22:10:08] ⚡ TURBO MODE: Cache + Optimized
 [22:10:08] ♾️ Mode: KHÔNG GIỚI HẠN dung lượng
+[22:10:08] ☁️ Multi-Account: Checkpoint lưu trên Drive
 ────────────────────────────────────────
 
 📁 MyFolder: 20 files, 3 folders
 [████████████████████████] 100%
-⚡ 20/20 | 💾 1.5GB | 🚀 45.2MB/s | ⏱️ 33s
+⚡ 20/20 | 💾 500GB (67% quota) | 🚀 45.2MB/s | ⏱️ 33s
 
 ✅ HOÀN TẤT!
 📁 Copied: 139 files | ⏭️ Skipped: 0 | ❌ Errors: 0
-💾 3.81GB | ⏱️ 2m53s | 🚀 22.5 MB/s
+💾 700GB (~93% quota) | ⏱️ 2m53s | 🚀 22.5 MB/s
+⚠️ Gần hết quota! Chuẩn bị account khác để tiếp tục.
 ```
 
 ### Bước 5: Xử lý timeout (nếu có)
@@ -166,6 +171,59 @@ Chạy Cell 2, tool sẽ:
 > ⚠️ **Colab Free** thường timeout sau ~90 phút
 
 **Giải pháp:** Chạy lại Cell 2 - tool sẽ tự động resume từ checkpoint.
+
+---
+
+## 🔄 Multi-Account Resume (MỚI)
+
+Tính năng cho phép **nhiều tài khoản Google** tiếp tục copy khi một tài khoản bị giới hạn quota.
+
+### Cách hoạt động
+
+```
+Account A: Copy 750GB → Bị limit
+    ↓
+Share folder đích cho Account B (Editor)
+Share folder nguồn cho Account B (Viewer)
+    ↓
+Account B: Mở Colab → Nhập link → Chạy Cell 2
+    ↓
+Tool hiện: "☁️ Resume từ Drive: xxx files (750GB)"
+    ↓
+Copy tiếp phần còn lại
+```
+
+### Hướng dẫn chi tiết
+
+1. **Khi Account A bị limit:**
+   - Dừng lại, checkpoint đã được lưu tự động lên Google Drive
+
+2. **Share folder cho Account B:**
+   - Folder đích: Share với quyền **Editor**
+   - Folder nguồn: Share với quyền **Viewer** (nếu chưa có)
+
+3. **Account B tiếp tục:**
+   - Mở Colab bằng Account B
+   - Nhập cùng link nguồn/đích
+   - Chạy Cell 2 → Tool tự động đọc checkpoint từ Drive
+
+### Lưu ý
+
+- Checkpoint được lưu tại folder đích với tên `.gdrive_turbo_checkpoint.json`
+- Có thể dùng nhiều account (A → B → C → ...) để copy không giới hạn
+- Mỗi account có quota riêng
+
+### Quota Estimate
+
+Tool hiển thị ước tính % quota đã dùng dựa trên giới hạn ~750GB/ngày:
+
+```
+⚡ 15/20 | 💾 500GB (67% quota) | 🚀 45.2MB/s | ⏱️ 2m30s
+```
+
+- **< 90%**: Tiếp tục copy bình thường
+- **> 90%**: Hiện cảnh báo, chuẩn bị đổi account
+- **Lưu ý**: Con số 750GB là ước tính, thực tế có thể khác tùy loại tài khoản
 
 ---
 
@@ -338,6 +396,14 @@ Chạy **Cell 3** để xóa checkpoint, sau đó chạy lại Cell 2.
 ---
 
 ## 📋 Changelog
+
+### v1.1 (Multi-Account Support)
+- 🔄 **Multi-Account Resume**: Checkpoint lưu lên Google Drive, cho phép nhiều account tiếp tục copy
+- ☁️ Cloud checkpoint: Tự động sync checkpoint lên folder đích
+- 📈 **Quota Estimate**: Hiển thị % quota đã dùng (~750GB/ngày)
+- ⚠️ **Quota Warning**: Cảnh báo khi gần hết quota (>90%)
+- 🔧 Cải thiện Cell 3: Xóa checkpoint cả local và trên Drive
+- 📝 Cập nhật hướng dẫn
 
 ### v1.0 (Initial Release)
 - ♾️ Copy không giới hạn dung lượng
