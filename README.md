@@ -95,6 +95,7 @@
 | 🔗 | **Shortcut Detection** | Phát hiện và báo cáo shortcuts |
 | 🔔 | **Sound Alert** | Âm thanh thông báo khi hoàn tất |
 | 🧹 | **Auto GC** | Tự động dọn RAM định kỳ |
+| 🗑️ | **Auto Cleanup** | Tự động xóa checkpoint khi copy xong |
 | 📝 | **Full Logging** | Ghi log chi tiết mọi hoạt động |
 
 ---
@@ -402,6 +403,7 @@ Chạy **Cell 3** để xóa checkpoint, sau đó chạy lại Cell 2.
 - ☁️ Cloud checkpoint: Tự động sync checkpoint lên folder đích
 - 📈 **Quota Estimate**: Hiển thị % quota đã dùng (~750GB/ngày)
 - ⚠️ **Quota Warning**: Cảnh báo khi gần hết quota (>90%)
+- 🧹 **Auto-cleanup**: Tự động xóa checkpoint khi copy hoàn tất không lỗi
 - 🔧 Cải thiện Cell 3: Xóa checkpoint cả local và trên Drive
 - 📝 Cập nhật hướng dẫn
 
