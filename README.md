@@ -1,7 +1,7 @@
 <h1 align="center">
   <img src="https://em-content.zobj.net/source/apple/391/rocket_1f680.png" width="50" height="50" alt="🚀"/>
   <br/>
-  GDrive Turbo Copy v1.1
+  GDrive Turbo Copy v1.2
 </h1>
 
 <p align="center">
@@ -15,7 +15,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Version-1.1-667eea?style=flat-square&labelColor=764ba2" alt="Version"/>
+  <img src="https://img.shields.io/badge/Version-1.2-667eea?style=flat-square&labelColor=764ba2" alt="Version"/>
   <img src="https://img.shields.io/badge/License-MIT-28a745?style=flat-square" alt="License"/>
   <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python"/>
   <img src="https://img.shields.io/badge/Platform-Google_Colab-F9AB00?style=flat-square&logo=googlecolab&logoColor=white" alt="Platform"/>
@@ -397,6 +397,15 @@ Chạy **Cell 3** để xóa checkpoint, sau đó chạy lại Cell 2.
 ---
 
 ## 📋 Changelog
+
+### v1.2 (Stability & Performance)
+- ⏱️ **API Timeout**: Thêm timeout 5 phút cho API calls, tránh treo vô hạn
+- 🧹 **Memory Management**: Tự động clear cache khi vượt 10,000 entries
+- 🔧 **Lambda Fix**: Sửa closure bug trong loop với lambda
+- ✅ **Verify Consistency**: Verify giờ dùng cùng filter như copy (exclude_str, include_ext, exclude_ext)
+- 🛡️ **Null Check**: Thêm kiểm tra null trước khi verify
+- 🆔 **Session ID**: Thêm session tracking để debug
+- 📝 Code cleanup và cải thiện error handling
 
 ### v1.1 (Multi-Account Support)
 - 🔄 **Multi-Account Resume**: Checkpoint lưu lên Google Drive, cho phép nhiều account tiếp tục copy
