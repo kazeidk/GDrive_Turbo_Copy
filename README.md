@@ -1,11 +1,11 @@
 <h1 align="center">
   <img src="https://em-content.zobj.net/source/apple/391/rocket_1f680.png" width="50" height="50" alt="🚀"/>
   <br/>
-  GDrive Turbo Copy v1.2
+  GDrive Turbo Copy v2.0
 </h1>
 
 <p align="center">
-  <b>⚡ Copy Google Drive → Google Drive | Siêu nhanh • Ổn định • ♾️ KHÔNG GIỚI HẠN</b>
+  <b>⚡ Copy Google Drive → Google Drive | Parallel Copy • MD5 Verify • ♾️ KHÔNG GIỚI HẠN</b>
 </p>
 
 <p align="center">
@@ -15,7 +15,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Version-1.2-667eea?style=flat-square&labelColor=764ba2" alt="Version"/>
+  <img src="https://img.shields.io/badge/Version-2.0-667eea?style=flat-square&labelColor=764ba2" alt="Version"/>
   <img src="https://img.shields.io/badge/License-MIT-28a745?style=flat-square" alt="License"/>
   <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python"/>
   <img src="https://img.shields.io/badge/Platform-Google_Colab-F9AB00?style=flat-square&logo=googlecolab&logoColor=white" alt="Platform"/>
@@ -397,6 +397,19 @@ Chạy **Cell 3** để xóa checkpoint, sau đó chạy lại Cell 2.
 ---
 
 ## 📋 Changelog
+
+### v2.0 (Parallel & Smart Verify)
+- 🧵 **Parallel Copy**: Copy song song với ThreadPoolExecutor (1-6 threads, mặc định 3)
+- ✅ **MD5+Size Verify**: Skip file trùng dựa trên tên + size, verify bằng md5Checksum
+- 📊 **Overall Progress**: Pre-scan tổng số files + hiển thị progress tổng thể với ETA
+- 📄 **Multi-format Export**: Google Docs→DOCX, Sheets→XLSX, Slides→PPTX (hoặc PDF)
+- 🔗 **Resolve Shortcuts**: Option copy file gốc mà shortcut trỏ tới
+- 🛡️ **Smart Error Handling**: Phân loại lỗi (RATE_LIMIT/NOT_FOUND/PERMISSION_DENIED/SERVER_ERROR/TIMEOUT)
+- 🔄 **Smart Retry**: Cell 5 tự động bỏ qua file NOT_FOUND/PERMISSION_DENIED, chỉ retry lỗi tạm thời
+- 🔒 **Thread-safe**: Lock + Semaphore bảo vệ shared state khi copy song song
+- 📊 **Checkpoint Schema v2**: Thêm schema versioning cho checkpoint
+- 🎨 **HTML Summary**: Bảng summary cuối cùng với HTML table đẹp hơn
+- 📉 **Optimized API**: Dùng `fields` param giảm data transfer trong mọi API call
 
 ### v1.2 (Stability & Performance)
 - ⏱️ **API Timeout**: Thêm timeout 5 phút cho API calls, tránh treo vô hạn
